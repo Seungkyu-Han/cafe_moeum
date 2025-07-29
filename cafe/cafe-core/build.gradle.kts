@@ -16,15 +16,17 @@ repositories {
 dependencies {
     testImplementation(kotlin("test"))
 
-    implementation(project(":cafe:cafe-presentation"))
+    implementation(project(":common"))
+    implementation(project(":cafe:cafe-persistence"))
+    implementation(project(":cafe:cafe-common"))
+
+    implementation("org.springframework:spring-tx:6.2.9")
 
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     compileOnly("org.projectlombok:lombok")
     annotationProcessor("org.projectlombok:lombok")
-
-    implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.8.9")
 }
 
 tasks.test {
