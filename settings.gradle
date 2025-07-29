@@ -3,4 +3,10 @@ plugins {
 }
 rootProject.name = 'cafeMoeum'
 include 'container'
+include 'crawler'
+include 'crawler:presentation'
+findProject(':crawler:presentation')?.name = 'presentation'
+include 'crawler:core'
+findProject(':crawler:core')?.name = 'core'
+include 'common'
 
