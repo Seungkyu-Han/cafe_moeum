@@ -1,0 +1,9 @@
+services:
+  spring:
+    container_name: spring
+    image: seungkyu/cafe:latest
+    restart: always
+    ports:
+      - "12040:8080"
+    env_file:
+      - .env
