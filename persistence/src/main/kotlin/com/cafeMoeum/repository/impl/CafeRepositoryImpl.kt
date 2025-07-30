@@ -10,13 +10,7 @@ class CafeRepositoryImpl(
     private val cafeJpaRepository: CafeJpaRepository
 ): CafeRepository{
 
-    override fun findById(id: String): Cafe = cafeJpaRepository.findById(id).orElseThrow()
-
     override fun findAll(): List<Cafe> = cafeJpaRepository.findAll()
 
-    override fun save(cafe: Cafe): Cafe = cafeJpaRepository.save(cafe)
-
-    override fun deleteById(id: String) {
-        cafeJpaRepository.deleteById(id)
-    }
+    override fun findById(id: String): Cafe = cafeJpaRepository.findById(id).orElseThrow()
 }
