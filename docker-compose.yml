@@ -7,3 +7,9 @@ services:
       - "12040:8080"
     env_file:
       - .env
+    networks:
+      - seungkyu
+
+networks:
+  seungkyu:
+    driver: bridge
