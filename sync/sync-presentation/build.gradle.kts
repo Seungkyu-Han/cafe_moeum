@@ -16,7 +16,7 @@ repositories {
 dependencies {
     testImplementation(kotlin("test"))
 
-    implementation(project(":crawler:crawler-core"))
+    implementation(project(":sync:sync-core"))
 
     implementation("org.springframework:spring-tx:6.2.9")
 
