@@ -10,3 +10,6 @@ spring:
 
 cors:
   mapping-url: ${CORS_MAPPING_URL}
+
+server:
+  url: ${SERVER_URL}
