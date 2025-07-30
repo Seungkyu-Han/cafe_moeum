@@ -7,5 +7,7 @@ import java.util.UUID
 
 interface CategoryJpaRepository: JpaRepository<Category, UUID> {
 
+    fun findAllByCafe(cafe: Cafe): List<Category>
+
     fun deleteByCafe(cafe: Cafe)
 }

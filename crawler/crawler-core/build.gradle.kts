@@ -26,6 +26,7 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-reflect")
 
     implementation("org.springframework.boot:spring-boot-starter-webflux:3.5.4")
+    implementation("org.springframework:spring-tx")
 }
 
 tasks.test {
