@@ -1,9 +1,7 @@
 package com.cafeMoeum.dto
 
-import java.util.*
-
 data class CafeRes(
-    val id: UUID,
+    val id: String,
     val name: String,
     val img: String
 )

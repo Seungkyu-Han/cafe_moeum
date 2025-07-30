@@ -12,10 +12,12 @@ data class Menu(
     @Column(columnDefinition = "BINARY(16)")
     val id: UUID = UUID.randomUUID(),
 
-    val name: String,
+    val nameKr: String,
+
+    val nameEn: String,
 
     val img: String,
 
     @ManyToOne
-    val cafe: Category
+    val category: Category
 )

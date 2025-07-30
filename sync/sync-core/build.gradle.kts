@@ -16,16 +16,17 @@ repositories {
 dependencies {
     testImplementation(kotlin("test"))
 
-    implementation(project(":cafe:cafe-presentation"))
-    implementation(project(":sync:sync-presentation"))
+    implementation("com.mysql:mysql-connector-j:9.3.0")
 
-    implementation("org.springframework.boot:spring-boot-starter-web")
+    implementation(project(":common"))
+    implementation(project(":persistence"))
+    implementation("org.springframework:spring-context:6.2.9")
+
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
-    compileOnly("org.projectlombok:lombok")
-    annotationProcessor("org.projectlombok:lombok")
 
-    implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.8.9")
+    implementation("org.springframework.boot:spring-boot-starter-webflux:3.5.4")
+    implementation("org.springframework:spring-tx")
 }
 
 tasks.test {
