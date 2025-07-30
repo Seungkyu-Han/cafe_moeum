@@ -17,7 +17,7 @@ dependencies {
     testImplementation(kotlin("test"))
 
     implementation(project(":common"))
-    implementation(project(":cafe:cafe-persistence"))
+    implementation(project(":persistence"))
     implementation(project(":cafe:cafe-common"))
 
     implementation("org.springframework:spring-tx:6.2.9")
