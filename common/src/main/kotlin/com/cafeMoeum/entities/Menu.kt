@@ -17,5 +17,5 @@ data class Menu(
     val img: String,
 
     @ManyToOne
-    val cafe: Category
+    val category: Category
 )
