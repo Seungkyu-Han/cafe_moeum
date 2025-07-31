@@ -35,8 +35,15 @@ class MenuServiceV1Impl(
             },
             menus = menus.map{
                 menu:Menu ->
-                MenuRes(nameKr = menu.nameKr, nameEn = menu.nameEn, img = menu.img)
+                menu.toDto()
             }
         )
     }
+
+    private fun Menu.toDto(): MenuRes = MenuRes(
+        nameKr = this.nameKr,
+        nameEn = this.nameEn,
+        category = this.category.name,
+        img = this.img
+    )
 }

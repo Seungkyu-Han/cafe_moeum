@@ -17,6 +17,7 @@ dependencies {
     testImplementation(kotlin("test"))
 
     implementation(project(":cafe:cafe-presentation"))
+    implementation(project(":menu:menu-presentation"))
     implementation(project(":sync:sync-presentation"))
 
     implementation("org.springframework.boot:spring-boot-starter-web")
