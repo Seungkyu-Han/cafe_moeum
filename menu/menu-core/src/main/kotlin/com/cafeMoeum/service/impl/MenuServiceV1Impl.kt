@@ -1,6 +1,7 @@
 package com.cafeMoeum.service.impl
 
 import com.cafeMoeum.dto.CafeInfoRes
+import com.cafeMoeum.dto.CategoryRes
 import com.cafeMoeum.dto.MenuRes
 import com.cafeMoeum.entities.Category
 import com.cafeMoeum.entities.Menu
@@ -22,20 +23,12 @@ class MenuServiceV1Impl(
 
         val categories: List<Category> = categoryRepository.findAllByCafe(cafe = cafe)
 
-        val menus: MutableList<Menu> = mutableListOf()
-
-        categories.forEach { category ->
-            menus += menuRepository.findAllByCategory(category)
-        }
-
         return CafeInfoRes(
             categories = categories.map{
                 category ->
-                category.name
-            },
-            menus = menus.map{
-                menu:Menu ->
-                menu.toDto()
+                CategoryRes(category = category.name, menus = menuRepository.findAllByCategory(category).map{
+                        menu -> menu.toDto()
+                })
             }
         )
     }
@@ -43,7 +36,7 @@ class MenuServiceV1Impl(
     private fun Menu.toDto(): MenuRes = MenuRes(
         nameKr = this.nameKr,
         nameEn = this.nameEn,
-        category = this.category.name,
+        sortOrder = this.sortOrder,
         img = this.img
     )
 }
