@@ -7,5 +7,7 @@ import java.util.*
 
 interface MenuJpaRepository: JpaRepository<Menu, UUID> {
 
+    fun findAllByCategory(category: Category): List<Menu>
+
     fun deleteByCategory(category: Category)
 }

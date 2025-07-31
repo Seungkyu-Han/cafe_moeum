@@ -11,6 +11,8 @@ class MenuRepositoryImpl(
     private val menuJpaRepository: MenuJpaRepository
 ): MenuRepository {
 
+    override fun findAllByCategory(category: Category): List<Menu> = menuJpaRepository.findAllByCategory(category)
+
     override fun saveAll(menus: List<Menu>): List<Menu> = menuJpaRepository.saveAll(menus)
 
     override fun deleteByCategory(category: Category) {
