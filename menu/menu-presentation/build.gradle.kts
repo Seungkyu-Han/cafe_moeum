@@ -22,6 +22,7 @@ dependencies {
 
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
+    implementation("io.swagger.core.v3:swagger-annotations:2.2.34")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     compileOnly("org.projectlombok:lombok")
     annotationProcessor("org.projectlombok:lombok")
