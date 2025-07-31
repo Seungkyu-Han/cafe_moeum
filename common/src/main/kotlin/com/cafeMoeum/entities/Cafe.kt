@@ -10,5 +10,7 @@ data class Cafe(
 
     val name: String,
 
-    val img: String
+    val img: String,
+
+    val url: String
 )

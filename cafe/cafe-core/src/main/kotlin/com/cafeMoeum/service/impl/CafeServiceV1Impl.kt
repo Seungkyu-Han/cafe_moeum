@@ -19,6 +19,7 @@ class CafeServiceV1Impl(
         CafeRes(
             id = this.id,
             name = this.name,
-            img = this.img
+            img = this.img,
+            url = this.url
         )
 }
