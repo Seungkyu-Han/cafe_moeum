@@ -18,7 +18,7 @@ data class Menu(
 
     val img: String,
 
-    val order: Int,
+    val sortOrder: Int,
 
     @ManyToOne
     val category: Category
