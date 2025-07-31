@@ -18,6 +18,8 @@ data class Menu(
 
     val img: String,
 
+    val order: Int,
+
     @ManyToOne
     val category: Category
 )

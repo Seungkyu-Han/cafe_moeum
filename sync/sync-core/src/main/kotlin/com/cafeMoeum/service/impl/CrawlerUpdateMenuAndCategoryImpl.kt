@@ -50,7 +50,7 @@ class CrawlerUpdateMenuAndCategoryImpl(
             val category = categoryRepository.save(Category(name = categoryAndMenu.category, cafe = cafe))
 
             menuRepository.saveAll(categoryAndMenu.menus.map{ menu ->
-                Menu(nameEn = menu.nameEn, nameKr = menu.nameKr, img = menu.img, category = category)
+                Menu(nameEn = menu.nameEn, nameKr = menu.nameKr, img = menu.img, category = category, order = menu.order)
             })
         }
     }
