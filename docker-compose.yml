@@ -12,4 +12,4 @@ services:
 
 networks:
   seungkyu:
-    driver: bridge
+    external: true
