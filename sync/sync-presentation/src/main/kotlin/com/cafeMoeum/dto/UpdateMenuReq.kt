@@ -1,6 +1,6 @@
 package com.cafeMoeum.dto
 
-import com.cafeMoeum.enums.CafeEnum
+import com.cafeMoeum.enums.CafeTypeEnum
 import com.fasterxml.jackson.annotation.JsonProperty
 import io.swagger.v3.oas.annotations.media.Schema
 
@@ -9,5 +9,5 @@ data class UpdateMenuReq(
 
     @JsonProperty("cafe")
     @Schema(description = "카페의 종류")
-    val cafe: CafeEnum,
+    val cafeType: CafeTypeEnum,
 )
