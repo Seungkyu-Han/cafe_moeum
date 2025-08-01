@@ -1,8 +1,8 @@
 package com.cafeMoeum.service
 
-import com.cafeMoeum.dto.CategoryRes
+import com.cafeMoeum.dto.CategoryMenuRes
 
 interface MenuService {
 
-    fun getCafeInfo(cafeType: String): List<CategoryRes>
+    fun getCafeInfo(cafeType: String): List<CategoryMenuRes>
 }

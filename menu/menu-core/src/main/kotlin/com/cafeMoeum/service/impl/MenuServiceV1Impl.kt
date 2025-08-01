@@ -1,5 +1,6 @@
 package com.cafeMoeum.service.impl
 
+import com.cafeMoeum.dto.CategoryMenuRes
 import com.cafeMoeum.dto.CategoryRes
 import com.cafeMoeum.dto.MenuRes
 import com.cafeMoeum.entities.Category
@@ -17,14 +18,14 @@ class MenuServiceV1Impl(
     private val menuRepository: MenuRepository
 ) : MenuService {
 
-    override fun getCafeInfo(cafeType: String): List<CategoryRes> {
+    override fun getCafeInfo(cafeType: String): List<CategoryMenuRes> {
         val cafe = cafeRepository.findById(cafeType)
 
         val categories: List<Category> = categoryRepository.findAllByCafe(cafe = cafe)
 
         return categories.map{
                 category ->
-                CategoryRes(category = category.name, menus = menuRepository.findAllByCategory(category).map{
+                CategoryMenuRes(category = CategoryRes(name = category.name, sortOrder = category.sortOrder), menus = menuRepository.findAllByCategory(category).map{
                         menu -> menu.toDto()
                 })
             }
