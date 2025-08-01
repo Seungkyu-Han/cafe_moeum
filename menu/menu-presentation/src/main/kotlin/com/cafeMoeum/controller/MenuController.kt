@@ -1,6 +1,6 @@
 package com.cafeMoeum.controller
 
-import com.cafeMoeum.dto.CafeInfoRes
+import com.cafeMoeum.dto.CategoryRes
 import com.cafeMoeum.enums.CafeTypeEnum
 import com.cafeMoeum.service.MenuService
 import io.swagger.v3.oas.annotations.Operation
@@ -25,7 +25,7 @@ class MenuController(
     @ApiResponses(
         ApiResponse(responseCode = "200", description = "메뉴 및 카테고리 조회 성공")
     )
-    fun getMenus(@RequestParam cafeTypeEnum: CafeTypeEnum): ResponseEntity<CafeInfoRes> {
+    fun getMenus(@RequestParam cafeTypeEnum: CafeTypeEnum): ResponseEntity<List<CategoryRes>> {
         return ResponseEntity.ok(menuService.getCafeInfo(cafeTypeEnum.value))
     }
 }
