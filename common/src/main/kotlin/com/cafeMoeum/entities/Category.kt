@@ -14,6 +14,8 @@ data class Category(
 
     val name: String,
 
+    val sortOrder: Int,
+
     @ManyToOne
     val cafe: Cafe
 )

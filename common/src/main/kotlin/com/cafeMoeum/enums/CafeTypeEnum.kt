@@ -1,7 +1,7 @@
 package com.cafeMoeum.enums
 
-enum class CafeTypeEnum (
+enum class CafeTypeEnum(
     val value: String
-){
+) {
     MMTH(value = "mmth")
 }

@@ -24,6 +24,6 @@ class SyncController(
         ApiResponse(responseCode = "200", description = "해당 카페의 메뉴를 성공적으로 업데이트")
     )
     fun updateMenus(@RequestBody updateMenuReq: UpdateMenuReq){
-        updateMenuAndCategoryService.update(updateMenuReq.cafe.value)
+        updateMenuAndCategoryService.update(updateMenuReq.cafeType.value)
     }
 }
