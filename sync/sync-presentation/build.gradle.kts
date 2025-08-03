@@ -17,7 +17,6 @@ dependencies {
     testImplementation(kotlin("test"))
 
     implementation(project(":sync:sync-core"))
-    implementation(project(":common"))
 
     implementation("org.springframework:spring-tx:6.2.9")
 
