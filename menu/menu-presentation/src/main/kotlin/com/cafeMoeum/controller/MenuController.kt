@@ -1,7 +1,6 @@
 package com.cafeMoeum.controller
 
 import com.cafeMoeum.dto.CategoryMenuRes
-import com.cafeMoeum.enums.CafeTypeEnum
 import com.cafeMoeum.service.MenuService
 import io.swagger.v3.oas.annotations.Operation
 import io.swagger.v3.oas.annotations.responses.ApiResponse
@@ -25,7 +24,7 @@ class MenuController(
     @ApiResponses(
         ApiResponse(responseCode = "200", description = "메뉴 및 카테고리 조회 성공")
     )
-    fun getMenus(@RequestParam cafeTypeEnum: CafeTypeEnum): ResponseEntity<List<CategoryMenuRes>> {
-        return ResponseEntity.ok(menuService.getCafeInfo(cafeTypeEnum.value))
+    fun getMenus(@RequestParam cafeType: String): ResponseEntity<List<CategoryMenuRes>> {
+        return ResponseEntity.ok(menuService.getCafeInfo(cafeType))
     }
 }

@@ -17,7 +17,6 @@ dependencies {
 
     implementation(project(":menu:menu-core"))
     implementation(project(":menu:menu-common"))
-    implementation(project(":common"))
 
     implementation("org.springframework:spring-tx:6.2.9")
 
