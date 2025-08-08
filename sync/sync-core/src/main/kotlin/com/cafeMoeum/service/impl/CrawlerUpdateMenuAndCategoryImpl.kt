@@ -49,9 +49,18 @@ class CrawlerUpdateMenuAndCategoryImpl(
             categoryAndMenu ->
             val category = categoryRepository.save(Category(name = categoryAndMenu.category.name, cafe = cafe, sortOrder = categoryAndMenu.category.order))
 
-            menuRepository.saveAll(categoryAndMenu.menus.map{ menu ->
-                Menu(nameEn = menu.nameEn, nameKr = menu.nameKr, img = menu.img, category = category, sortOrder = menu.order)
-            })
+            val menus: MutableList<Menu> = mutableListOf()
+
+            for (menu in categoryAndMenu.menus) {
+                val imgUrl = if(menu.img.startsWith("http"))
+                    menu.img
+                else
+                    "${cafe.url}${menu.img}"
+
+                menus.add(Menu(nameEn = menu.nameEn, nameKr = menu.nameKr, img = imgUrl, category = category, sortOrder = menu.order))
+            }
+
+            menuRepository.saveAll(menus)
         }
     }
 }

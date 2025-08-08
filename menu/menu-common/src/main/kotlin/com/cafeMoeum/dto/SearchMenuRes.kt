@@ -2,7 +2,7 @@ package com.cafeMoeum.dto
 
 import io.swagger.v3.oas.annotations.media.Schema
 
-@Schema(description = "메뉴 검색 결과")
+@Schema(description = "메뉴 검색 결과", name = "메뉴 검색 결과")
 data class SearchMenuRes(
 
     @Schema(description = "카페 이름")

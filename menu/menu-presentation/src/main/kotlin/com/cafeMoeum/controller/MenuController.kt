@@ -1,6 +1,7 @@
 package com.cafeMoeum.controller
 
 import com.cafeMoeum.dto.CategoryMenuRes
+import com.cafeMoeum.dto.SearchMenuRes
 import com.cafeMoeum.service.MenuService
 import io.swagger.v3.oas.annotations.Operation
 import io.swagger.v3.oas.annotations.responses.ApiResponse
@@ -30,7 +31,7 @@ class MenuController(
     @ApiResponses(
         ApiResponse(responseCode = "200", description = "검색 성공")
     )
-    fun getSearchMenu(@RequestParam keyword: String): ResponseEntity<List<CategoryMenuRes>> {
-        return ResponseEntity.ok(menuService.getCafeInfo(keyword))
+    fun getSearchMenu(@RequestParam keyword: String): ResponseEntity<List<SearchMenuRes>> {
+        return ResponseEntity.ok(menuService.getSearchMenu(keyword))
     }
 }
