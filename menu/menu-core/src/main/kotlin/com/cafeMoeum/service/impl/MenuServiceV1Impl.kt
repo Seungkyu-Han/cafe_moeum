@@ -3,6 +3,7 @@ package com.cafeMoeum.service.impl
 import com.cafeMoeum.dto.CategoryMenuRes
 import com.cafeMoeum.dto.CategoryRes
 import com.cafeMoeum.dto.MenuRes
+import com.cafeMoeum.dto.SearchMenuRes
 import com.cafeMoeum.entities.Category
 import com.cafeMoeum.entities.Menu
 import com.cafeMoeum.repository.CafeRepository
@@ -31,10 +32,28 @@ class MenuServiceV1Impl(
             }
     }
 
+    override fun getSearchMenu(keyword: String): List<SearchMenuRes> {
+        return menuRepository.findByNameKrContaining(keyword)
+            .map{it.toSearchDto()}
+    }
+
+    override fun getSearchMenuInCafe(keyword: String, cafeType: String): List<SearchMenuRes>{
+        return menuRepository.findByNameKrContaining(keyword)
+            .filter{ it.category.cafe.id == cafeType }.map{it.toSearchDto()}
+    }
+
     private fun Menu.toDto(): MenuRes = MenuRes(
         nameKr = this.nameKr,
         nameEn = this.nameEn,
         sortOrder = this.sortOrder,
+        img = this.img
+    )
+
+    private fun Menu.toSearchDto(): SearchMenuRes = SearchMenuRes(
+        nameKr = this.nameKr,
+        nameEn = this.nameEn,
+        categoryName = this.category.name,
+        cafeName = this.category.cafe.name,
         img = this.img
     )
 }

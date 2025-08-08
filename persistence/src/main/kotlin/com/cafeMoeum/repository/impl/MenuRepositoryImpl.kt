@@ -18,4 +18,6 @@ class MenuRepositoryImpl(
     override fun deleteByCategory(category: Category) {
         menuJpaRepository.deleteByCategory(category)
     }
+
+    override fun findByNameKrContaining(keyword: String): List<Menu> = menuJpaRepository.findByNameKrContaining(keyword)
 }

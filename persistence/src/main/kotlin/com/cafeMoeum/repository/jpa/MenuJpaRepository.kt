@@ -10,4 +10,6 @@ interface MenuJpaRepository: JpaRepository<Menu, UUID> {
     fun findAllByCategory(category: Category): List<Menu>
 
     fun deleteByCategory(category: Category)
+
+    fun findByNameKrContaining(keyword: String): List<Menu>
 }
