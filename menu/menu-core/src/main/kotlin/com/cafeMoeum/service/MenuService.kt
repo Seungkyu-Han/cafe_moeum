@@ -8,4 +8,6 @@ interface MenuService {
     fun getCafeInfo(cafeType: String): List<CategoryMenuRes>
 
     fun getSearchMenu(keyword: String): List<SearchMenuRes>
+
+    fun getSearchMenuInCafe(keyword: String, cafeType: String): List<SearchMenuRes>
 }

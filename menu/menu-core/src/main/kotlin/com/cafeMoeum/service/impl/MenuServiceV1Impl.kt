@@ -37,6 +37,11 @@ class MenuServiceV1Impl(
             .map{it.toSearchDto()}
     }
 
+    override fun getSearchMenuInCafe(keyword: String, cafeType: String): List<SearchMenuRes>{
+        return menuRepository.findByNameKrContaining(keyword)
+            .filter{ it.category.cafe.id == cafeType }.map{it.toSearchDto()}
+    }
+
     private fun Menu.toDto(): MenuRes = MenuRes(
         nameKr = this.nameKr,
         nameEn = this.nameEn,

@@ -34,4 +34,13 @@ class MenuController(
     fun getSearchMenu(@RequestParam keyword: String): ResponseEntity<List<SearchMenuRes>> {
         return ResponseEntity.ok(menuService.getSearchMenu(keyword))
     }
+
+    @GetMapping("/search/{cafeType}")
+    @Operation(summary = "해당 카페에서 키워드로 메뉴들을 검색합니다")
+    @ApiResponses(
+        ApiResponse(responseCode = "200", description = "검색 성공")
+    )
+    fun getSearchMenuInCafe(@RequestParam keyword: String, @PathVariable cafeType: String): ResponseEntity<List<SearchMenuRes>> {
+        return ResponseEntity.ok(menuService.getSearchMenuInCafe(keyword, cafeType))
+    }
 }
