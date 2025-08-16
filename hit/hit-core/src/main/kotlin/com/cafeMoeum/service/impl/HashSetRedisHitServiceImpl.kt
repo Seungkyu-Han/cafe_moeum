@@ -37,7 +37,7 @@ class HashSetRedisHitServiceImpl(
 
         return HitCountRes(
             todayHit = todayHitCount,
-            totalHit = totalHitCount
+            totalHit = totalHitCount + todayHitCount
         )
     }
 
