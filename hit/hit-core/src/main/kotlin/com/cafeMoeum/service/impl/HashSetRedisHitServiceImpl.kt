@@ -5,7 +5,9 @@ import com.cafeMoeum.service.HitRecordService
 import jakarta.servlet.http.HttpServletRequest
 import jakarta.servlet.http.HttpServletResponse
 import org.springframework.data.redis.core.StringRedisTemplate
+import org.springframework.scheduling.annotation.Scheduled
 import org.springframework.stereotype.Component
+import org.springframework.transaction.annotation.Transactional
 
 @Component
 class HashSetRedisHitServiceImpl(
@@ -26,6 +28,19 @@ class HashSetRedisHitServiceImpl(
         }
 
         return super.preHandle(request, response, handler)
+    }
+
+    @Scheduled(cron = "0 0 0 * * ?")
+    @Transactional
+    fun flushTodayHitCount(){
+        val todayHitCount = redisTemplate.opsForValue().get(todayHitKey)?.toLong()
+
+        if (todayHitCount != null) {
+            redisTemplate.opsForValue().increment(totalHitKey, todayHitCount)
+        }
+
+        todayHitUserHashSet.clear()
+        redisTemplate.opsForValue().set(todayHitKey, "0")
     }
 
     private fun getClientIp(request: HttpServletRequest): String {
