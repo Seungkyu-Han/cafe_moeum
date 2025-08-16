@@ -20,4 +20,7 @@ class MenuRepositoryImpl(
     }
 
     override fun findByNameKrContaining(keyword: String): List<Menu> = menuJpaRepository.findByNameKrContaining(keyword)
+
+    override fun findByNameKrContainingAndCafe(keyword: String, cafeType: String): List<Menu> =
+        menuJpaRepository.findByNameKrContaining(keyword).filter { it.category.cafe.id == cafeType }
 }
