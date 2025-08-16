@@ -12,4 +12,6 @@ interface MenuRepository {
     fun deleteByCategory(category: Category)
 
     fun findByNameKrContaining(keyword: String): List<Menu>
+
+    fun findByNameKrContainingAndCafe(keyword: String, cafeType: String): List<Menu>
 }
