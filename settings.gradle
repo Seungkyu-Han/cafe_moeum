@@ -29,4 +29,6 @@ include 'hit:hit-core'
 findProject(':hit:hit-core')?.name = 'hit-core'
 include 'hit:hit-presentation'
 findProject(':hit:hit-presentation')?.name = 'hit-presentation'
+include 'hit:hit-common'
+findProject(':hit:hit-common')?.name = 'hit-common'
 

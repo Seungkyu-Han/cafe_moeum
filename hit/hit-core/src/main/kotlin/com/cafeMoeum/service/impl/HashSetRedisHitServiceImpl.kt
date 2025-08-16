@@ -1,5 +1,6 @@
 package com.cafeMoeum.service.impl
 
+import com.cafeMoeum.dto.HitCountRes
 import com.cafeMoeum.service.HitReadService
 import com.cafeMoeum.service.HitRecordService
 import jakarta.servlet.http.HttpServletRequest
@@ -28,6 +29,16 @@ class HashSetRedisHitServiceImpl(
         }
 
         return super.preHandle(request, response, handler)
+    }
+
+    override fun getHitCount(): HitCountRes {
+        val todayHitCount = redisTemplate.opsForValue().get(todayHitKey)?.toLong() ?: 0
+        val totalHitCount = redisTemplate.opsForValue().get(totalHitKey)?.toLong() ?: 0
+
+        return HitCountRes(
+            todayHit = todayHitCount,
+            totalHit = totalHitCount
+        )
     }
 
     @Scheduled(cron = "0 0 0 * * ?")
