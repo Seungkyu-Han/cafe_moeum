@@ -10,6 +10,8 @@ data class CafeRes(
     val name: String,
     @Schema(description = "해당 카페의 로고 이미지")
     val img: String,
+    @Schema(description = "해당 카페의 배너 이미지")
+    val banner: String,
     @Schema(description = "해당 카페의 base url")
     val url: String
 )
