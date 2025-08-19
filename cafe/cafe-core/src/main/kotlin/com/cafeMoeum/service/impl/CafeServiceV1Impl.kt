@@ -20,6 +20,7 @@ class CafeServiceV1Impl(
             id = this.id,
             name = this.name,
             img = this.img,
-            url = this.url
+            url = this.url,
+            banner = this.banner
         )
 }
