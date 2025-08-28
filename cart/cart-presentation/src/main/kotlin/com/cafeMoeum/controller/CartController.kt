@@ -3,6 +3,7 @@ package com.cafeMoeum.controller
 import com.cafeMoeum.dto.CartReq
 import com.cafeMoeum.dto.CartRes
 import com.cafeMoeum.dto.UpdateCartReq
+import com.cafeMoeum.service.CartService
 import io.swagger.v3.oas.annotations.Operation
 import io.swagger.v3.oas.annotations.responses.ApiResponse
 import io.swagger.v3.oas.annotations.responses.ApiResponses
@@ -15,7 +16,9 @@ import java.util.*
 @RestController
 @RequestMapping("/carts")
 @Tag(name = "장바구니 API", description = "장바구니를 열고 닫는 API입니다.")
-class CartController{
+class CartController(
+    private val cartService: CartService
+){
 
     @PostMapping
     @Operation(summary = "장바구니를 생성합니다.")
@@ -23,7 +26,7 @@ class CartController{
         ApiResponse(responseCode = "201", description = "생성 성공")
     )
     fun createCart(@RequestBody cartReq: CartReq): ResponseEntity<CartRes> {
-        return ResponseEntity.status(HttpStatus.CREATED).body(CartRes(cartId = UUID.randomUUID().toString()))
+        return ResponseEntity.status(HttpStatus.CREATED).body(cartService.createCart(name = cartReq.name, cafeId = cartReq.cafeId))
     }
 
     @PatchMapping

@@ -11,6 +11,9 @@ data class Item(
     val id: String = UUID.randomUUID().toString(),
 
     @ManyToOne
+    val cart: Cart,
+
+    @ManyToOne
     val menu: Menu,
 
     val count: Int
