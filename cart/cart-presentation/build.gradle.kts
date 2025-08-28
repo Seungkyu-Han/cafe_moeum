@@ -16,20 +16,17 @@ repositories {
 dependencies {
     testImplementation(kotlin("test"))
 
-    implementation(project(":cafe:cafe-presentation"))
-    implementation(project(":menu:menu-presentation"))
-    implementation(project(":sync:sync-presentation"))
-    implementation(project(":cart:cart-presentation"))
-    implementation(project(":hit:hit-presentation"))
-    implementation(project(":hit:hit-core"))
+    implementation(project(":cart:cart-core"))
+    implementation(project(":cart:cart-common"))
+
+    implementation("org.springframework:spring-tx:6.2.9")
 
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
+    implementation("io.swagger.core.v3:swagger-annotations:2.2.34")
     compileOnly("org.projectlombok:lombok")
     annotationProcessor("org.projectlombok:lombok")
-
-    implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.8.9")
 }
 
 tasks.test {
