@@ -16,8 +16,8 @@ repositories {
 dependencies {
     testImplementation(kotlin("test"))
 
-    implementation(project(":order:order-core"))
-    implementation(project(":order:order-common"))
+    implementation(project(":cart:cart-core"))
+    implementation(project(":cart:cart-common"))
 
     implementation("org.springframework:spring-tx:6.2.9")
 

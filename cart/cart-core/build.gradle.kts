@@ -18,7 +18,7 @@ dependencies {
 
     implementation(project(":common"))
     implementation(project(":persistence"))
-    implementation(project(":order:order-common"))
+    implementation(project(":cart:cart-common"))
 
     implementation("org.springframework:spring-tx:6.2.9")
 

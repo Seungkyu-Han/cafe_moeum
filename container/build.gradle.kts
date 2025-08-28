@@ -19,6 +19,7 @@ dependencies {
     implementation(project(":cafe:cafe-presentation"))
     implementation(project(":menu:menu-presentation"))
     implementation(project(":sync:sync-presentation"))
+    implementation(project(":cart:cart-presentation"))
     implementation(project(":hit:hit-presentation"))
     implementation(project(":hit:hit-core"))
 
