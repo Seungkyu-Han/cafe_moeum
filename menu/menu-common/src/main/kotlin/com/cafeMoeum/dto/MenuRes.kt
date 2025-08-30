@@ -5,6 +5,9 @@ import io.swagger.v3.oas.annotations.media.Schema
 @Schema(description = "카테고리")
 data class MenuRes(
 
+    @Schema(description = "메뉴 고유 아이디")
+    val id: String,
+
     @Schema(description = "메뉴 한글 명")
     val nameKr: String,
 

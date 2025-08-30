@@ -61,6 +61,7 @@ class MenuServiceV1Impl(
     }
 
     private fun Menu.toDto(): MenuRes = MenuRes(
+        id = this.id.toString(),
         nameKr = this.nameKr,
         nameEn = this.nameEn,
         sortOrder = this.sortOrder,
