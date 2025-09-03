@@ -7,6 +7,8 @@ interface MenuRepository {
 
     fun findAllByCategory(category: Category): List<Menu>
 
+    fun findAllByCafeId(cafeId: String): List<Menu>
+
     fun saveAll(menus: List<Menu>): List<Menu>
 
     fun deleteByCategory(category: Category)
