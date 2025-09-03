@@ -9,7 +9,7 @@ import java.util.*
 
 @Entity(name = "items")
 @Table(indexes = [
-    Index(name = "idx__cart", columnList = "cart"),
+    Index(name = "idx__cart", columnList = "cart_id"),
 ])
 data class Item(
     @Id
