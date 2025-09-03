@@ -4,4 +4,5 @@ import com.cafeMoeum.entities.Cart
 
 interface CartRepository {
     fun save(cart: Cart): Cart
+    fun findById(id: String): Cart
 }
