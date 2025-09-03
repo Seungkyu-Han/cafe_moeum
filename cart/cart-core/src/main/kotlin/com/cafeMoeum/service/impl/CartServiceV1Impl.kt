@@ -28,7 +28,7 @@ class CartServiceV1Impl(
         val cafe = try{
             cafeRepository.findById(cafeId)
         }
-        catch(e: Exception){
+        catch(_: Exception){
             throw ResponseStatusException(HttpStatus.NOT_FOUND, "해당 카페가 존재하지 않습니다.")
         }
         return CartRes(cartId = cartRepository.save(Cart(name = name, cafe = cafe)).id)
