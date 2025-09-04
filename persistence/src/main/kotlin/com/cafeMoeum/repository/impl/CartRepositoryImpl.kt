@@ -13,4 +13,8 @@ class CartRepositoryImpl(
     override fun save(cart: Cart): Cart {
         return cartJpaRepository.save(cart)
     }
+
+    override fun findById(id: String): Cart {
+        return cartJpaRepository.findById(id).orElseThrow()
+    }
 }

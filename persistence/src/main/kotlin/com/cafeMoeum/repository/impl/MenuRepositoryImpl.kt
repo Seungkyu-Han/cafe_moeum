@@ -13,6 +13,8 @@ class MenuRepositoryImpl(
 
     override fun findAllByCategory(category: Category): List<Menu> = menuJpaRepository.findAllByCategory(category)
 
+    override fun findAllByCafeId(cafeId: String): List<Menu> = menuJpaRepository.findAllByCafeId(cafeId)
+
     override fun saveAll(menus: List<Menu>): List<Menu> = menuJpaRepository.saveAll(menus)
 
     override fun deleteByCategory(category: Category) {

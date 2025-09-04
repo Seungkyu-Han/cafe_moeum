@@ -2,10 +2,15 @@ package com.cafeMoeum.entities
 
 import jakarta.persistence.Entity
 import jakarta.persistence.Id
+import jakarta.persistence.Index
 import jakarta.persistence.ManyToOne
+import jakarta.persistence.Table
 import java.util.*
 
 @Entity(name = "items")
+@Table(indexes = [
+    Index(name = "idx__cart", columnList = "cart_id"),
+])
 data class Item(
     @Id
     val id: String = UUID.randomUUID().toString(),
