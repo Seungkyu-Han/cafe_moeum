@@ -10,12 +10,7 @@ interface MenuJpaRepository: JpaRepository<Menu, UUID> {
 
     fun findAllByCategory(category: Category): List<Menu>
 
-    @Query(
-        "select m from menus m " +
-                "LEFT JOIN categories c ON m.category " +
-                "LEFT JOIN cafes ca ON c.cafe " +
-                "WHERE ca.id = :cafeId"
-    )
+    @Query("SELECT m FROM menus m JOIN m.category c JOIN c.cafe ca WHERE ca.id = :cafeId")
     fun findAllByCafeId(cafeId: String): List<Menu>
 
     fun deleteByCategory(category: Category)
