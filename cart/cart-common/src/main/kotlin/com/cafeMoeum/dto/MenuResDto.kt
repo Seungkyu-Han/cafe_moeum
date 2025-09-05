@@ -1,9 +1,7 @@
 package com.cafeMoeum.dto
 
-import java.util.UUID
-
 data class MenuResDto(
-    val id: UUID,
+    val id: String,
     val nameKr: String,
     val nameEn: String,
     val img: String,
