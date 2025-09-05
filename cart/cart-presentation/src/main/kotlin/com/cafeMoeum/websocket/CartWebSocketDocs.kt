@@ -26,13 +26,15 @@ class CartWebSocketDocs {
     )
     fun subscribe(@PathVariable cartId: String) {}
 
-    @PostMapping("/pub/{roomId}")
+    @PostMapping("/pub/{cartId}")
     @Operation(summary = "게임방 이벤트 전송")
     @Parameters(
-        Parameter(name = "roomId", description = "/pub/{cartId}가 이벤트 주소입니다.")
+        Parameter(name = "cartId", description = "/pub/{cartId}가 이벤트 주소입니다.")
     )
     @ApiResponses(
         ApiResponse(responseCode = "200", content = [Content(schema = Schema(implementation = MenuBoardResDto::class))]),
     )
-    fun publish(@PathVariable roomId: String, @RequestBody menuBoardReqDto: MenuBoardReqDto) {}
+    fun publish(@PathVariable cartId: String, @RequestBody menuBoardReqDto: MenuBoardReqDto) {
+        println(menuBoardReqDto)
+    }
 }

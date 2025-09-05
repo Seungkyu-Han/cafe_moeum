@@ -9,4 +9,6 @@ interface CartService {
     fun createCart(name: String, cafeId: String): CartRes
 
     fun updateCart(menuBoardReqDto: MenuBoardReqDto, cartId: String): MenuBoardResDto
+
+    fun getCart(cartId: String): MenuBoardResDto
 }

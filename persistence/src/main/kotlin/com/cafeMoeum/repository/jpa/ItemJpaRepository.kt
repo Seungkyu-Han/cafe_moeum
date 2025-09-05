@@ -7,4 +7,6 @@ import org.springframework.data.jpa.repository.JpaRepository
 interface ItemJpaRepository: JpaRepository<Item, String> {
 
     fun deleteByCart(cart: Cart)
+
+    fun findAllByCart(cart: Cart): List<Item>
 }
